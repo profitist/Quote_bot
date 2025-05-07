@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73c5be5f-6cbe-4b48-bc14-b222a5d30db4" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/Tests/handlers_tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/parse_data_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/quote_maker_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/updates_test.py" afterDir="false" />
+    <list default="true" id="73c5be5f-6cbe-4b48-bc14-b222a5d30db4" name="Changes" comment="meta">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ai/quote_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ai/quote_creator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ai/text_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ai/text_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bot/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bot/models/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/models/message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bot/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bot/sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/sender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/requests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myorm/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/myorm/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myorm/myorm/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/myorm/myorm/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +203,7 @@
       <workItem from="1746246964906" duration="2854000" />
       <workItem from="1746373094128" duration="4191000" />
       <workItem from="1746504520709" duration="5144000" />
-      <workItem from="1746607068222" duration="12267000" />
+      <workItem from="1746607068222" duration="13883000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -227,7 +213,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746504532134</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add some tests">
+      <option name="closed" value="true" />
+      <created>1746621654677</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746621654677</updated>
+    </task>
+    <task id="LOCAL-00003" summary="meta">
+      <option name="closed" value="true" />
+      <created>1746621665286</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746621665286</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +248,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="add some tests" />
+    <MESSAGE value="meta" />
+    <option name="LAST_COMMIT_MESSAGE" value="meta" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/QuoTeBot$.coverage" NAME=" Coverage Results" MODIFIED="1746621387558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tests" />
