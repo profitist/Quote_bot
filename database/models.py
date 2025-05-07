@@ -1,4 +1,5 @@
 from myorm.model import Model
+"""Модели для работы с БД"""
 
 
 class User(Model):
@@ -18,5 +19,6 @@ class FavQuote(Model):
 
 
 def init_db():
+    """Запуск БД"""
     User.create_table()
     FavQuote.create_table()

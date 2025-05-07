@@ -1,5 +1,6 @@
 from Bot.models.message import Message, Callback
 from database.models import User, FavQuote
+"""Набор функций для запросов в БД"""
 
 
 async def register_user(message: Message):

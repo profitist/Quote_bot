@@ -6,6 +6,7 @@ import Ai.text_utils as text_utils
 
 
 def query_handler(callback_data: str):
+    """Декоратор на обработку указанной команды"""
     def decorator(func):
         async def wrapper(callback: Callback):
             if callback.data == callback_data:
@@ -16,6 +17,7 @@ def query_handler(callback_data: str):
 
 
 def command_handler(command: str):
+    """Декоратор на обработку Коллбэков"""
     def decorator(func):
         async def wrapper(message: Message):
             text = message.text
@@ -24,6 +26,9 @@ def command_handler(command: str):
             return None
         return wrapper
     return decorator
+
+
+"""Обработчики команд"""
 
 
 @command_handler('start')

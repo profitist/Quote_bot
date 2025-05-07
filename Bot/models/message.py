@@ -1,6 +1,9 @@
 import httpx
 
 
+"""Классы для удобного парсинга сообщения"""
+
+
 class User:
     def __init__(self, tg_id: int, username: str, first_name: str = None, last_name: str = None):
         self.tg_id = tg_id
@@ -15,7 +18,7 @@ class Chat:
 
 
 class Message:
-    def __init__(self, message_id: int, text: str, author: User, chat: Chat, client: httpx.AsyncClient):
+    def __init__(self, message_id: int, text: str, author: User, chat: Chat, client: httpx.AsyncClient=None):
         self.text = text
         self.author = author
         self.chat = chat
@@ -38,12 +41,12 @@ class Callback:
 
 
 async def create_message(message_json: dict, client: httpx.AsyncClient) -> Message | None:
+    """разбор json обычного сообщения"""
     info = message_json.get('message', None)
     if info is None:
         return None
     message_id = info['message_id']
     message_from_info = info['from']
-    print(message_from_info)
     try:
         user = User(
             message_from_info['id'],
@@ -54,12 +57,11 @@ async def create_message(message_json: dict, client: httpx.AsyncClient) -> Messa
         user = User(message_from_info['id'], message_from_info['username'])
     chat = Chat(info['chat']['id'])
     text = info['text']
-    print(user.tg_id)
     return Message(message_id, text, user, chat, client)
 
 
 async def create_callback(update: dict, client: httpx.AsyncClient) -> Callback:
-    print(update)
+    """разбор json Коллбэка"""
     cb = update["callback_query"]
     msg = await create_callback_message(cb, client)
     callback = Callback(
@@ -68,14 +70,11 @@ async def create_callback(update: dict, client: httpx.AsyncClient) -> Callback:
         message=msg,
         client=client
     )
-    print('callback created')
-    print(callback.message.author.tg_id)
     return callback
 
 
 async def create_callback_message(callback: dict, client: httpx.AsyncClient) -> Message:
-    print(callback)
-    # message_id = callback['message_id']
+    """разбор сообщения на который адресован Коллбэк"""
     message_from_info = callback['from']
     bot_message = await create_message(callback, client)
     try:
@@ -88,7 +87,6 @@ async def create_callback_message(callback: dict, client: httpx.AsyncClient) -> 
         user = User(message_from_info['id'], message_from_info['username'])
     chat = Chat(bot_message.chat.chat_id)
     text = bot_message.text
-    print(user.tg_id)
     return Message(1, text, user, chat, client)
 
 

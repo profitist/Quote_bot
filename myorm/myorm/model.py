@@ -1,9 +1,11 @@
 import sqlite3
 
 
+
 class Model:
     table = ''
     fields = {}
+
 
     def __init__(self, **kwargs):
         for field in self.fields:

@@ -1,10 +1,14 @@
 import httpx
-import main
 from Ai import text_utils as tu
-LLM_API_KEY = 'io-v2-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvd25lciI6ImI0Y2JmMzNlLTQ2NWItNGZiYy04NzM5LTRmODE0ZTUzZGRkNSIsImV4cCI6NDg5OTUzNDUxMX0.B9lb-9so_MQ2JvtmunnthSdtJtQEmw3LF8ynoj-ClJdHrQqCpJPLYCTZUfuqEgrFw6MlBB0G_Gm6PLkH3kwmNw'
+from dotenv import dotenv_values
+
+
+LLM_API_KEY = dotenv_values(".env").get("API_TOKEN")
 
 
 async def get_quote(text: str) -> str | None:
+    """Метод отправки запроса в LLM модель Deepseek на поиск цитаты
+       промпт на запрос берется из файла prompt.txt"""
     url = "https://api.intelligence.io.solutions/api/v1/chat/completions"
     with open('Ai/prompt.txt', 'r') as f:
         prompt = f.read() + text + '<|end_of_prompt|>\n'
@@ -23,14 +27,8 @@ async def get_quote(text: str) -> str | None:
     async with httpx.AsyncClient() as client:
         try:
             response = await client.post(url, headers=headers, json=data, timeout=60)
-            quote_text = response.json()
-            print(quote_text)
+            quote_text = await response.json()
             answer = quote_text['choices'][0]['message']['content'].split('</think>')[1]
-            print(answer)
             return tu.make_quote_message(answer)
         except httpx.ReadTimeout as e:
             return None
-
-
-async def send_wait_message():
-    url = main.BASE_URL
