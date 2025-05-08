@@ -42,10 +42,34 @@ class UpdatesTest(unittest.IsolatedAsyncioTestCase):
         )
 
     @mock.patch('httpx.AsyncClient.get')
-    async def test_sending_message_with_httpxErrors(self, mock_get):
+    @mock.patch('builtins.print')
+    async def test_get_updates_with_httpError(self, mock_print, mock_get):
         mock_get.side_effect = httpx.NetworkError('error', request=mock.AsyncMock())
         client = httpx.AsyncClient()
         assert await get_updates(client=client, offset=123) is None
+
+    @mock.patch('httpx.AsyncClient.get')
+    @mock.patch('builtins.print')
+    async def test_get_updates_with_httpxConnectTimeout(self, mock_print, mock_get):
+        mock_get.side_effect = httpx.NetworkError('error', request=mock.AsyncMock())
+        client = httpx.AsyncClient()
+        assert await get_updates(client=client, offset=123) is None
+
+    @mock.patch('httpx.AsyncClient.get')
+    @mock.patch('builtins.print')
+    async def test_get_updates_with_NetworkError(self, mock_print, mock_get):
+        mock_get.side_effect = httpx.NetworkError('error', request=mock.AsyncMock())
+        client = httpx.AsyncClient()
+        assert await get_updates(client=client, offset=123) is None
+
+    @mock.patch('httpx.AsyncClient.get')
+    @mock.patch('builtins.print')
+    async def test_get_updates_with_httpx_RemoteProtocolError(self, mock_print, mock_get):
+        mock_get.side_effect = httpx.NetworkError('error', request=mock.AsyncMock())
+        client = httpx.AsyncClient()
+        assert await get_updates(client=client, offset=123) is None
+
+
 
 
 
